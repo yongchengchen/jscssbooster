@@ -51,7 +51,7 @@ class BladeExt
         $placeholder = true;
         $path = basename($blade->getCompiledPath($blade->getPath()));
         return '<link rel="stylesheet" type="text/css" href="' .
-          '<?php echo \Ycc\Jscssbooster\Facades\Jscssbooster::computeCssName(\''.$path.'\', \'css\'); ?>" />' . PHP_EOL;
+          '<?php echo \Ycc\Jscssbooster\Facades\Jscssbooster::computeResName(\''.$path.'\', \'css\'); ?>" />' . PHP_EOL;
       }
       return '';
     });
