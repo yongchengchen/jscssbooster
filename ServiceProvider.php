@@ -21,7 +21,7 @@ class ServiceProvider extends KernelServiceProvider {
   public function boot() {
     // Register view parts methods
     $this->app['Jscssbooster.bladeext']->injectBlade();
-    $this->app['Illuminate\Contracts\Http\Kernel']->pushMiddleware(\Ycc\Jscssbooster\Middleware::class);
+    //$this->app['Illuminate\Contracts\Http\Kernel']->pushMiddleware(\Ycc\Jscssbooster\Middleware::class);
   }
 
   /**
