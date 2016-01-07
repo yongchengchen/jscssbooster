@@ -19,8 +19,8 @@ use Log;
 class BladeExt
 {
   protected $app;
-  private $js_array = ['js'=>[],'target'=>''];
-  private $css_array = ['sass'=>[], 'css'=>[], 'target'=>''];
+  private $js_array = ['js'=>[],'target'=>'', 'type'=>'js'];
+  private $css_array = ['sass'=>[], 'css'=>[], 'target'=>'', 'type'=>'css'];
 
   public function __construct(Container $app)
   {
@@ -75,20 +75,22 @@ class BladeExt
       $this->app['cache']->put($md5, $filename, 60*1000*60*24*30);
       $res_array['target'] = $filename;
       file_put_contents(base_path() . '/storage/framework/gulp/' . $key, json_encode($res_array));
-      echo shell_exec('cd '. base_path() . ' && gulp ' . $key);
+      exec('cd '. base_path() . ' && gulp ' . $key . ' --production);
     }
-    return 'public/' . $res_type . '/' . $this->app['cache']->get($md5);
+    return '/public/' . $res_type . '/' . $this->app['cache']->get($md5);
   }
 
   public function addJs($filename) {
     $filename = str_replace('(', '', $filename);
     $filename = str_replace(')', '', $filename);
+    $filename = trim($filename, '\'');
     $this->js_array['js'][] = $filename;
   }
 
   public function addCss($filename) {
     $filename = str_replace('(', '', $filename);
     $filename = str_replace(')', '', $filename);
+    $filename = trim($filename, '\'');
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
     switch($ext) {
       case 'scss':
