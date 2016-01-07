@@ -21,7 +21,7 @@ And it will generate html likes below:
 <html>
     <head>
         <link href="/public/css/sample.css" type="text/css">
-        <script type="text/javascript" src='/public/css/sample.js'></script>
+        <script type="text/javascript" src='/public/js/sample.js'></script>
     </head>
 </html>
 ```
