@@ -4,6 +4,7 @@ Laravel > 5.0 extension for easy compile sass, combine css and js
 
 How to use
 Edit your blade view template file.
+```html
 <html>
     <head>
         @requirecss(sample1.scss)
@@ -13,12 +14,14 @@ Edit your blade view template file.
         @requirejs(sample2.js)
     </head>
 </html>
+```
 
 And it will generate html likes below:
-
+```html
 <html>
     <head>
         <link href="/public/css/sample.css" type="text/css">
         <script type="text/javascript" src='/public/css/sample.js'></script>
     </head>
 </html>
+```
